@@ -177,7 +177,7 @@ public class USBEpsonHandler {
             }
             //this.printline("Exit ID: " + SentinelID);
             //this.Justify((byte) 0);
-            this.startPrinter();
+//            this.startPrinter();
             //bos.write(13);
             //bos.close();
 
@@ -228,7 +228,7 @@ public class USBEpsonHandler {
                 this.printline("Salcedo Street Legaspi Village");
                 this.printline("Makati Philippines");
                 this.printline("VAT Reg TIN : 008-398-874-00000");
-                this.startPrinter();
+//                this.startPrinter();
             }
             this.setBlack();
              
@@ -274,7 +274,7 @@ public class USBEpsonHandler {
 //                this.printline("     THIS DOCUMENT IS NOT VALID");
 //                this.printline("       FOR CLAIM OF INPUT TAX");
                 //this.startPrinter();           
-            this.startPrinter();            
+//            this.startPrinter();            
             this.Justify((byte) 0);
             
         } catch (Exception ex) {

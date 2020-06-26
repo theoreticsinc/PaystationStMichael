@@ -479,9 +479,9 @@ public class HybridPanelUI extends javax.swing.JFrame implements WindowFocusList
         SlotsComputer sc = new SlotsComputer(slotscompute);
         ThrSlotsClock = new Thread(sc);
         ThrSlotsClock.start();
-//        ShowExitCamera sec = new ShowExitCamera();
-//        ThrShowExitCamera = new Thread(sec);
-//        ThrShowExitCamera.start();
+        ShowExitCamera sec = new ShowExitCamera();
+        ThrShowExitCamera = new Thread(sec);
+        ThrShowExitCamera.start();
         //OnlineQuickUpdater qc = new OnlineQuickUpdater();
         //ThrQuickUpdaterClock = new Thread(qc);
         //ThrQuickUpdaterClock.start();
@@ -6468,18 +6468,25 @@ private void ENTERManualEnter(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
 
                     //dbh.insertImageFromURLToDB();
                     //BufferedImage buf = dbh.getImageFromCamera(exitIPCamera, "admin", "user1234");
-                    BufferedImage buf = dbh.getImageFromCamera(exitIPCamera, "admin", "user1234");
+                    BufferedImage buf = dbh.getImageFromCamera(entryIPCamera, "admin", "user1234");
                     if (null != buf) {
                         //entryCamera.setIcon(new ImageIcon(buf));       
                         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                         
-                        if (exitCamPressed) {
+                        if (exitCamPressed  && Cardinput.toString().compareTo("") == 0) {
                             Image img = getScaledImage(buf, screenSize.width, screenSize.height);
                             fullScreenCamera.setIcon(new ImageIcon(new ImageIcon(buf)
                             .getImage()
                             .getScaledInstance(screenSize.width, screenSize.height, Image.SCALE_DEFAULT)));
                             fullScreenCamera.setBounds(0, 0, screenSize.width, screenSize.height);                            
-                        } else {
+                        }else if (exitCamPressed  && Cardinput.toString().compareTo("") != 0) {
+                            //Image img = getScaledImage(buf, screenSize.width, screenSize.height);
+                            ImageIcon img = (ImageIcon) exitCamera.getIcon();
+                            fullScreenCamera.setIcon(new ImageIcon(img
+                            .getImage()
+                            .getScaledInstance(screenSize.width, screenSize.height, Image.SCALE_DEFAULT)));
+                            fullScreenCamera.setBounds(0, 0, screenSize.width, screenSize.height);                            
+                        } else if (Cardinput.toString().compareTo("") == 0){
                             Image img = getScaledImage(buf, screenSize.width / 4 + 100, screenSize.height / 3);
                             fullScreenCamera.setIcon(null);
                             fullScreenCamera.setText("");

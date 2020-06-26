@@ -1037,7 +1037,7 @@ public class ParkersAPI {
 
 //            eh.printline("Receipt Num.:" + RNos);
 
-            eh.startPrinter();
+//            eh.startPrinter();
             eh.Justify((byte) 0);
             eh.printline("");
             eh.printline("Ent ID.:" + Entrypoint);
@@ -1142,10 +1142,11 @@ public class ParkersAPI {
             //eh.startPrinter();
             //eh.selectEMstyle(false);
             //eh.Justify((byte) 1);
-            eh.startPrinter();
+//            eh.startPrinter();
 
             eh.printFOOTER(SentinenlID, true);
 
+            eh.startPrinter();
             eh.selectEMstyle(true);
 
             // IF NOT AUTOCUTTER 
@@ -1206,7 +1207,7 @@ public class ParkersAPI {
 
             eh.printline("Receipt Num.:" + RNos);
 
-            eh.startPrinter();
+//            eh.startPrinter();
             eh.Justify((byte) 0);
             eh.printline("");
             eh.printline("Ent ID.:" + Entrypoint);
@@ -1256,13 +1257,13 @@ public class ParkersAPI {
                 } else if (settlementRef.trim().compareToIgnoreCase("") != 0) {
                     eh.printline("" + settlementRef);
                 }
-                eh.startPrinter();
+//                eh.startPrinter();
             }
             eh.Justify((byte) 1);
             eh.selectEMstyle(true);
             eh.printline(message1);
             eh.printline(message2);
-            eh.startPrinter();
+//            eh.startPrinter();
 
             eh.printFOOTER(SentinenlID, false);
 
